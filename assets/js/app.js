@@ -4,13 +4,12 @@ const stdForm = document.getElementById('stdForm')
 const fname = document.getElementById('fname')
 const lname = document.getElementById('lname')
 const email = document.getElementById('email')
-const salary = document.getElementById('salary')
 const contect = document.getElementById('contect')
 const addstdBtn = document.getElementById('addstdBtn')
 const updatestdBtn = document.getElementById('updatestdBtn')
 const stdcontainer = document.getElementById('stdcontainer')
 
-let base_url = 'https://b-22-cruds-default-rtdb.asia-southeast1.firebasedatabase.app'
+let base_url = 'https://shubham-92216-default-rtdb.asia-southeast1.firebasedatabase.app'
 let std_url = `${base_url}/students.json`
 
 let studentArr = [];
@@ -48,7 +47,6 @@ function oncreatestdList(arr) {
                 <td>${i + 1}</td>
                 <td>${ele.fname}</td>
                 <td>${ele.lname}</td>
-                <td>${ele.salary}</td>
                 <td>${ele.email}</td>
                 <td>${ele.contect}</td>
                 <td><button onClick="onEditStudent(this)" class="btn btn-outline-primary">Edit</button></td>
@@ -65,7 +63,6 @@ function oncreatestd(eve) {
         fname: fname.value,
         lname: lname.value,
         email: email.value,
-        salary: salary.value,
         contect: contect.value
     }
     let xhr = new XMLHttpRequest()
@@ -81,7 +78,6 @@ function oncreatestd(eve) {
             tr.innerHTML = `<td>${1}</td>
                 <td>${createOBJ.fname}</td>
                 <td>${createOBJ.lname}</td>
-                <td>${createOBJ.salary}</td>
                 <td>${createOBJ.email}</td>
                 <td>${createOBJ.contect}</td>
                 <td><button onClick="onEditStudent(this)" class="btn btn-outline-primary">Edit</button></td>
@@ -123,7 +119,6 @@ function onEditStudent(ele) {
             fname.value = res.fname;
             lname.value = res.lname;
             email.value = res.email;
-            salary.value = res.salary;
             contect.value = res.contect;
 
             addstdBtn.classList.add('d-none');
@@ -146,7 +141,6 @@ function onpudatestd() {
         fname: fname.value,
         lname: lname.value,
         email: email.value,
-        salary: salary.value,
         contect: contect.value
     }
     //cl(updatewobj)
@@ -161,7 +155,6 @@ function onpudatestd() {
             tr.innerHTML = `<td>${1}</td>
                 <td>${updatewobj.fname}</td>
                 <td>${updatewobj.lname}</td>
-                <td>${updatewobj.salary}</td>
                 <td>${updatewobj.email}</td>
                 <td>${updatewobj.contect}</td>
                 <td><button onClick="onEditStudent(this)" class="btn btn-outline-primary">Edit</button></td>
